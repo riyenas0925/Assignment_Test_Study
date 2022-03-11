@@ -72,6 +72,25 @@ public class ProcessorTest {
         assertThat(actual).isEqualToIgnoringWhitespace(expected);
     }
 
+    @Test
+    @DisplayName("결과 데이터는 영어와 숫자로만 구성된다")
+    void ResultDataOnlyEnglishAndNumber() throws IOException {
+        // given
+        Resource resource = resourceLoader.getResource("crawler_test_web_page_input.html");
+        Document document = Jsoup.parse(resource.getFile(), "UTF-8", "", Parser.xmlParser());
+
+        Processor processor = new TextTypeProcessor(document);
+
+        String data = "12345 ~!@#$%^&*()_+ abcde \n\n ABCDE";
+
+        // when
+        String expected = processor.extractEnglishAndNumber(data);
+
+        // that
+        String actual = "12345abcdeABCDE";
+        assertThat(actual).isEqualToIgnoringWhitespace(expected);
+    }
+
     @AfterEach
     void tearDown() {
 

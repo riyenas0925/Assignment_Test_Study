@@ -15,4 +15,9 @@ public abstract class Processor {
     }
 
     public abstract String getData(Document document);
+
+    public String extractEnglishAndNumber(String data) {
+        return data.replaceAll("[^\\p{Alnum}]", "");
+    }
+
 }
