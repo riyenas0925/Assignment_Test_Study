@@ -1,6 +1,5 @@
 package dev.riyenas.assignment.crawler;
 
-import dev.riyenas.assignment.domain.Crawler;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.parser.Parser;

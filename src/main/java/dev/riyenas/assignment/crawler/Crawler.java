@@ -1,4 +1,4 @@
-package dev.riyenas.assignment.domain;
+package dev.riyenas.assignment.crawler;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
