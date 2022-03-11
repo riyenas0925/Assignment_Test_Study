@@ -51,10 +51,9 @@ public class CrawlerTest {
     public void crawlByVisibleTypeHTML() throws IOException {
         // given
         String url = "http://localhost:9000/web";
-        Crawler crawler = new Crawler();
 
         // when
-        String expected = crawler.crawl(url, ExposureType.HTML);
+        String expected = Crawler.crawl(url, ExposureType.HTML);
 
         // that
         String actual = "!@#$%^&*()_+ fedcba FEDCBA 654321";
@@ -66,10 +65,9 @@ public class CrawlerTest {
     public void crawlByVisibleTypeText() throws IOException {
         // given
         String url = "http://localhost:9000/web";
-        Crawler crawler = new Crawler();
 
         // when
-        String expected = crawler.crawl(url, ExposureType.TEXT);
+        String expected = Crawler.crawl(url, ExposureType.TEXT);
 
         // that
         String actual = "<!doctype html>\n" +
