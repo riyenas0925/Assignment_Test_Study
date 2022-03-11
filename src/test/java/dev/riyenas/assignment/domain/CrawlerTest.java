@@ -1,7 +1,5 @@
-package dev.riyenas.assignment;
+package dev.riyenas.assignment.domain;
 
-import dev.riyenas.assignment.domain.Crawler;
-import dev.riyenas.assignment.domain.ExposureType;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

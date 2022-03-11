@@ -45,8 +45,19 @@ public class Processor {
         return '0' <= ch && ch <= '9';
     }
 
-    public List<Character> shuffle(List<Character> numbers, List<Character> alphabets) {
-        return new ArrayList<>();
+    public List<Character> shuffle(List<Character> alphabets, List<Character> numbers) {
+        List<Character> data = new ArrayList<>();
+
+        int alphabetsSize = alphabets.size();
+        int numbersSize = numbers.size();
+        int maxSize = Math.max(numbersSize, alphabetsSize);
+
+        for(int i = 0; i < maxSize; i++) {
+            if(i < alphabetsSize) data.add(alphabets.get(i));
+            if(i < numbersSize) data.add(numbers.get(i));
+        }
+
+        return data;
     }
 
 }
