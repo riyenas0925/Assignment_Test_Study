@@ -26,14 +26,16 @@ public class CrawlerTest {
 
     private static final int PORT = 9000;
     private ClientAndServer mockServer;
+    private Document document;
 
     @Autowired
     private ResourceLoader resourceLoader;
 
     @BeforeEach
     void setUp() throws IOException {
-        byte[] content = resourceLoader.getResource("crawler_test_web_page_input.html")
-                .getInputStream().readAllBytes();
+        Resource resource = resourceLoader.getResource("crawler_test_web_page_input.html");
+        byte[] content = resource.getInputStream().readAllBytes();
+        document = Jsoup.parse(resource.getFile(), "UTF-8", "", Parser.xmlParser());
 
         mockServer = ClientAndServer.startClientAndServer(PORT);
         new MockServerClient("localhost", PORT)
@@ -55,14 +57,11 @@ public class CrawlerTest {
         // given
         Crawler crawler = new Crawler();
 
-        Resource resource = resourceLoader.getResource("crawler_test_web_page_input.html");
-        Document input = Jsoup.parse(resource.getFile(), "UTF-8", "", Parser.xmlParser());
-
         // when
         Document expected = crawler.getHtmlCode("http://localhost:9000/web");
 
         // that
-        assertThat(input.html()).isEqualTo(expected.html());
+        assertThat(document.html()).isEqualTo(expected.html());
     }
 
     @AfterEach

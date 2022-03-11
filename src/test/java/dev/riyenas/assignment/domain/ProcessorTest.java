@@ -3,7 +3,6 @@ package dev.riyenas.assignment.domain;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.parser.Parser;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,18 +21,18 @@ public class ProcessorTest {
     @Autowired
     private ResourceLoader resourceLoader;
 
-    @BeforeEach
-    void setUp() {
+    private Document document;
 
+    @BeforeEach
+    void setUp() throws IOException {
+        Resource resource = resourceLoader.getResource("crawler_test_web_page_input.html");
+        document = Jsoup.parse(resource.getFile(), "UTF-8", "", Parser.xmlParser());
     }
 
     @Test
     @DisplayName("노출 유형이 HTML일 경우 HTML코드에서 태그를 제거한다.")
-    void HTMLTypeRemoveTag() throws IOException {
+    void HTMLTypeRemoveTag() {
         // given
-        Resource resource = resourceLoader.getResource("crawler_test_web_page_input.html");
-        Document document = Jsoup.parse(resource.getFile(), "UTF-8", "", Parser.xmlParser());
-
         Processor processor = new HTMLTypeProcessor(document);
 
         // when
@@ -46,11 +45,8 @@ public class ProcessorTest {
 
     @Test
     @DisplayName("노출 유형이 TEXT일 경우 HTML코드에서 태그를 제거한다.")
-    void TextTypeRemoveTag() throws IOException {
+    void TextTypeRemoveTag() {
         // given
-        Resource resource = resourceLoader.getResource("crawler_test_web_page_input.html");
-        Document document = Jsoup.parse(resource.getFile(), "UTF-8", "", Parser.xmlParser());
-
         Processor processor = new TextTypeProcessor(document);
 
         // when
@@ -76,9 +72,6 @@ public class ProcessorTest {
     @DisplayName("결과 데이터는 영어와 숫자로만 구성된다")
     void ResultDataOnlyEnglishAndNumber() throws IOException {
         // given
-        Resource resource = resourceLoader.getResource("crawler_test_web_page_input.html");
-        Document document = Jsoup.parse(resource.getFile(), "UTF-8", "", Parser.xmlParser());
-
         Processor processor = new TextTypeProcessor(document);
 
         String data = "12345 ~!@#$%^&*()_+ abcde \n\n ABCDE";
@@ -91,8 +84,4 @@ public class ProcessorTest {
         assertThat(actual).isEqualToIgnoringWhitespace(expected);
     }
 
-    @AfterEach
-    void tearDown() {
-
-    }
 }
