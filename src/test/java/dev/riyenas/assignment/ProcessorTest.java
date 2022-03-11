@@ -19,7 +19,7 @@ public class ProcessorTest {
         Processor processor = new Processor(exposureData, ExposureType.TEXT);
 
         // when
-        List<Character> expected = processor.extractAlpha();
+        List<Character> expected = processor.extractAlphabets();
 
         // that
         List<Character> actual = List.of('a', 'z', 'A', 'Z');

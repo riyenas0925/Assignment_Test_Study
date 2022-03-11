@@ -17,7 +17,7 @@ public class Processor {
         return "A0a1B2b3";
     }
 
-    public List<Character> extractAlpha() {
+    public List<Character> extractAlphabets() {
         List<Character> alphabets = new ArrayList<>();
 
         for(char ch : data) {
