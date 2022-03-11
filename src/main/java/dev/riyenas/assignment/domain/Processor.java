@@ -5,47 +5,15 @@ import java.util.List;
 
 public class Processor {
 
-    private final char[] data;
-    private final ExposureType type;
+    private final List<Character> numbers;
+    private final List<Character> alphabets;
 
-    public Processor(String data, ExposureType type) {
-        this.data = data.toCharArray();
-        this.type = type;
+    public Processor(List<Character> alphabets, List<Character> numbers) {
+        this.alphabets = alphabets;
+        this.numbers = numbers;
     }
 
-    public String process() {
-        return "A0a1B2b3";
-    }
-
-    public List<Character> extractAlphabets() {
-        List<Character> alphabets = new ArrayList<>();
-
-        for(char ch : data) {
-            if(isAlphabet(ch)) alphabets.add(ch);
-        }
-
-        return alphabets;
-    }
-
-    private boolean isAlphabet(char ch) {
-        return ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z');
-    }
-
-    public List<Character> extractNumbers() {
-        List<Character> numbers = new ArrayList<>();
-
-        for(char ch : data) {
-            if(isNumber(ch)) numbers.add(ch);
-        }
-
-        return numbers;
-    }
-
-    private boolean isNumber(char ch) {
-        return '0' <= ch && ch <= '9';
-    }
-
-    public List<Character> shuffle(List<Character> alphabets, List<Character> numbers) {
+    public List<Character> shuffle() {
         List<Character> data = new ArrayList<>();
 
         int alphabetsSize = alphabets.size();
