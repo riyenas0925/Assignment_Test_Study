@@ -26,4 +26,19 @@ public class ProcessorTest {
         assertThat(actual).isEqualTo(expected);
     }
 
+    @Test
+    @DisplayName("HTML 코드에서 숫자를 추출한다.")
+    public void extractNumbers() {
+        // given
+        String exposureData = "!@#$%^&*()_+ az AZ 09";
+        Processor processor = new Processor(exposureData, ExposureType.TEXT);
+
+        // when
+        List<Character> expected = processor.extractNumbers();
+
+        // that
+        List<Character> actual = List.of('0', '9');
+        assertThat(actual).isEqualTo(expected);
+    }
+
 }

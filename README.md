@@ -6,7 +6,7 @@
 - [x] 노출 유형이 TEXT일 경우에는 HTML 코드에서 모든 텍스트 포함한다.
 - [ ] HTML 코드를 가공한다. Processor#process()
   - [x] HTML 코드에서 영어를 추출한다. Processor#extractAlpha()
-  - [ ] HTML 코드에서 숫자를 추출한다. Processor#extractNumber()
+  - [x] HTML 코드에서 숫자를 추출한다. Processor#extractNumber()
   - [ ] 영문, 숫자를 각각 오름차순으로 정렬해야 한다. 
   - [ ] 영어와 숫자를 교차로 섞어야 한다. Processor#shuffle()
 - [ ] 출력은 출력 묶음 단위를 기준으로 몫과 나머지를 구한다.

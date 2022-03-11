@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Processor {
 
-    private final String data;
+    private final char[] data;
     private final ExposureType type;
 
     public Processor(String data, ExposureType type) {
-        this.data = data;
+        this.data = data.toCharArray();
         this.type = type;
     }
 
@@ -20,7 +20,7 @@ public class Processor {
     public List<Character> extractAlpha() {
         List<Character> alphabets = new ArrayList<>();
 
-        for(char ch : data.toCharArray()) {
+        for(char ch : data) {
             if(isAlphabet(ch)) alphabets.add(ch);
         }
 
@@ -32,7 +32,17 @@ public class Processor {
     }
 
     public List<Character> extractNumbers() {
-        return new ArrayList<>();
+        List<Character> numbers = new ArrayList<>();
+
+        for(char ch : data) {
+            if(isNumber(ch)) numbers.add(ch);
+        }
+
+        return numbers;
+    }
+
+    private boolean isNumber(char ch) {
+        return '0' <= ch && ch <= '9';
     }
 
     public List<Character> shuffle(List<Character> numbers, List<Character> alphabets) {
