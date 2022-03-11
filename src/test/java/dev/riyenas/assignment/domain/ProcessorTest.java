@@ -44,7 +44,7 @@ public class ProcessorTest {
     }
 
     @Test
-    @DisplayName("노출 유형이 TEXT일 경우 HTML코드에서 태그를 제거한다.")
+    @DisplayName("노출 유형이 TEXT 일 경우에는 HTML코드에서 모든 텍스트 포함한다.")
     void TextTypeRemoveTag() {
         // given
         Processor processor = new TextTypeProcessor(document);
