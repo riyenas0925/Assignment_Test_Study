@@ -5,12 +5,30 @@ import java.util.List;
 
 public class Processor {
 
-    public String process(String visibleType) {
+    private final String data;
+    private final ExposureType type;
+
+    public Processor(String data, ExposureType type) {
+        this.data = data;
+        this.type = type;
+    }
+
+    public String process() {
         return "A0a1B2b3";
     }
 
     public List<Character> extractAlpha() {
-        return new ArrayList<>();
+        List<Character> alphabets = new ArrayList<>();
+
+        for(char ch : data.toCharArray()) {
+            if(isAlphabet(ch)) alphabets.add(ch);
+        }
+
+        return alphabets;
+    }
+
+    private boolean isAlphabet(char ch) {
+        return ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z');
     }
 
     public List<Character> extractNumbers() {
