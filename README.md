@@ -1,9 +1,9 @@
 # URL 파싱 후 데이터 가공 하기
 
 ## 기능 목록
-- [ ] URL주소에 해당하는 모든 HTML 코드를 불러온다. - Crawler#crawl()
-- [ ] 노출 유형이 HTML일 경우는 HTML 코드에서 태그를 제거한다. - Processor#html()
-- [ ] 노출 유형이 TEXT일 경우에는 HTML 코드에서 모든 텍스트 포함한다. - Processor#Crawler#text()
+- [x] URL주소에 해당하는 모든 HTML 코드를 불러온다. - Crawler#crawl()
+- [x] 노출 유형이 HTML일 경우는 HTML 코드에서 태그를 제거한다.
+- [x] 노출 유형이 TEXT일 경우에는 HTML 코드에서 모든 텍스트 포함한다.
 - [ ] HTML 코드를 가공한다. Processor#process()
   - [ ] HTML 코드에서 영어를 추출한다. Processor#extractAlpha()
   - [ ] HTML 코드에서 숫자를 추출한다. Processor#extractNumber()
