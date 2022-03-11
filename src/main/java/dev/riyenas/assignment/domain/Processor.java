@@ -1,16 +1,36 @@
 package dev.riyenas.assignment.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Processor {
 
     private final List<Character> numbers;
     private final List<Character> alphabets;
 
+    private final static Comparator<Character> sort = (c1, c2) -> {
+        if(Character.toUpperCase(c1) == Character.toUpperCase(c2)) {
+            return c1 - c2;
+        }
+
+        return Character.toUpperCase(c1) - Character.toUpperCase(c2);
+    };
+
     public Processor(List<Character> alphabets, List<Character> numbers) {
         this.alphabets = alphabets;
         this.numbers = numbers;
+    }
+
+    public String process() {
+        Collections.sort(numbers);
+        Collections.sort(alphabets, sort);
+
+        return shuffle().stream()
+                .map(String::valueOf)
+                .collect(Collectors.joining());
     }
 
     public List<Character> shuffle() {
