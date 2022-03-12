@@ -4,14 +4,14 @@
 - [x] URL주소에 해당하는 모든 HTML 코드를 불러온다. - Crawler#crawl()
 - [x] 노출 유형이 HTML일 경우는 HTML 코드에서 태그를 제거한다.
 - [x] 노출 유형이 TEXT일 경우에는 HTML 코드에서 모든 텍스트 포함한다.
-- [x] HTML 코드에서 영어를 추출한다. Extractor#alphabets()
-- [x] HTML 코드에서 숫자를 추출한다. Extractor#numbers()
+- [x] HTML 코드에서 영어를 추출한다. CharacterExtractor#alphabets()
+- [x] HTML 코드에서 숫자를 추출한다. CharacterExtractor#numbers()
 - [x] 영어와 숫자를 각각 정렬하고 교차 출력한다. Processor#process()
   - [x] 영문, 숫자를 각각 오름차순으로 정렬해야 한다.
   - [x] 영어와 숫자를 교차로 섞어야 한다. Processor#shuffle()
 - [x] 출력은 출력 묶음 단위를 기준으로 몫과 나머지를 구한다.
-  - [x] 출력은 묶음 단위를 기준으로 몫을 구한다. - Result#quotient()
-  - [x] 출력은 묶음 단위를 기준으로 나머지를 구한다. - Result#reminder()
+  - [x] 출력은 묶음 단위를 기준으로 몫을 구한다. - SplitCalculator#quotient()
+  - [x] 출력은 묶음 단위를 기준으로 나머지를 구한다. - SplitCalculator#reminder()
 
 ## 기능 요구 사항
 1. URL 입력을 하면 그 링크 안에있는 모든 HTML코드를 불러온다.
