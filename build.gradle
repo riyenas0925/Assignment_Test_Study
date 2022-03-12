@@ -24,6 +24,9 @@ dependencies {
 
 	implementation 'org.jsoup:jsoup:1.14.3'
 
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.mock-server:mockserver-netty:5.11.2'
 	testImplementation 'org.assertj:assertj-core:3.6.2'
