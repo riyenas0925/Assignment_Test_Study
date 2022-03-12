@@ -12,7 +12,7 @@
 * http://localhost:8080/swagger-ui/index.html
 
 ### Request
-url : http://localhost:8080/api/v1/process
+> url : http://localhost:8080/api/v1/process
 * url은 https, http protocol이 포함된 문자열만 허용합니다.
 * unit은 1이상의 값만 허용합니다.
 * exposureType은 HTML과 TEXT값만 허용합니다. (text, html 허용 안함)
@@ -26,7 +26,7 @@ url : http://localhost:8080/api/v1/process
 ```
 
 ### Success Response
-성공시 몫과 나머지를 반환합니다.
+> 성공시 몫과 나머지를 반환합니다.
 ```json
 {
   "quotient": "eeeGGGggglllooo",
@@ -35,7 +35,7 @@ url : http://localhost:8080/api/v1/process
 ```
 
 ### Error Response
-에러 발생시 에러 메시지와 에러 코드를 반환합니다.
+> 에러 발생시 에러 메시지와 에러 코드를 반환합니다.
 ```json
 {
   "errors": [
