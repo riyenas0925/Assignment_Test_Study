@@ -32,7 +32,7 @@ public class CrawlerServiceTest {
     private CrawlerService crawlerService;
 
     @BeforeEach
-    void setUp() throws IOException {
+    public void setUp() throws IOException {
         Resource resource = resourceLoader.getResource("test_web_page.html");
         byte[] content = resource.getInputStream().readAllBytes();
 
