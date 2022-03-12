@@ -21,10 +21,6 @@ public class CharacterExtractor {
         return alphabets;
     }
 
-    private boolean isAlphabet(char ch) {
-        return ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z');
-    }
-
     public List<Character> getNumbers() {
         List<Character> numbers = new ArrayList<>();
 
@@ -38,4 +34,9 @@ public class CharacterExtractor {
     private boolean isNumber(char ch) {
         return '0' <= ch && ch <= '9';
     }
+
+    private boolean isAlphabet(char ch) {
+        return ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z');
+    }
+
 }

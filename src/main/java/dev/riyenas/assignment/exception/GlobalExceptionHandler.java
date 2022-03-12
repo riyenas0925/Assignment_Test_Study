@@ -15,12 +15,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         List<FieldError> errors = e.getBindingResult().getFieldErrors();
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ErrorResponse.of(errors));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ErrorResponse.of(errors, "400"));
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handleException(MethodArgumentNotValidException e) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+    public ResponseEntity<ErrorResponse> handleException(Exception e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ErrorResponse.of("Internal server error", "500"));
     }
 
 }
