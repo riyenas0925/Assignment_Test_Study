@@ -10,13 +10,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.io.IOException;
 
 @Api(tags = {"크롤링과 데이터 가공을 제공하는 Controller"})
 @RequiredArgsConstructor
-@RestController("/api/v1")
+@RestController
+@RequestMapping("/api/v1")
 public class DataProcessController {
 
     private final DataProcessService dataProcessService;
@@ -24,7 +27,7 @@ public class DataProcessController {
 
     @PostMapping("/process")
     public ResponseEntity<ProcessResponseDto> dataProcess(
-            @RequestBody ProcessRequestDto requestDto
+            @Valid @RequestBody ProcessRequestDto requestDto
     ) throws IOException {
 
         String data = crawlerService.crawler(requestDto.getUrl(), ExposureType.valueOf(requestDto.getExposureType()));
