@@ -7,17 +7,17 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ExtractorTest {
+public class CharacterExtractorTest {
 
     @Test
     @DisplayName("HTML 코드에서 영어를 추출한다.")
     public void extractAlphabets() {
         // given
         String exposureData = "!@#$%^&*()_+ az AZ 09";
-        Extractor extractor = new Extractor(exposureData);
+        CharacterExtractor characterExtractor = new CharacterExtractor(exposureData);
 
         // when
-        List<Character> expected = extractor.alphabets();
+        List<Character> expected = characterExtractor.alphabets();
 
         // that
         List<Character> actual = List.of('a', 'z', 'A', 'Z');
@@ -29,10 +29,10 @@ public class ExtractorTest {
     public void extractNumbers() {
         // given
         String exposureData = "!@#$%^&*()_+ az AZ 09";
-        Extractor extractor = new Extractor(exposureData);
+        CharacterExtractor characterExtractor = new CharacterExtractor(exposureData);
 
         // when
-        List<Character> expected = extractor.numbers();
+        List<Character> expected = characterExtractor.numbers();
 
         // that
         List<Character> actual = List.of('0', '9');

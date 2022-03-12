@@ -3,11 +3,11 @@ package dev.riyenas.assignment.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Extractor {
+public class CharacterExtractor {
 
     private final String data;
 
-    public Extractor(String data) {
+    public CharacterExtractor(String data) {
         this.data = data;
     }
 
