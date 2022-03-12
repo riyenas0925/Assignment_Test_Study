@@ -13,14 +13,6 @@ public class Processor {
     private final List<Character> numbers;
     private final List<Character> alphabets;
 
-    private final static Comparator<Character> sort = (c1, c2) -> {
-        if(Character.toUpperCase(c1) == Character.toUpperCase(c2)) {
-            return c1 - c2;
-        }
-
-        return Character.toUpperCase(c1) - Character.toUpperCase(c2);
-    };
-
     @Builder
     public Processor(List<Character> alphabets, List<Character> numbers) {
         this.alphabets = alphabets;
@@ -29,12 +21,20 @@ public class Processor {
 
     public String process() {
         Collections.sort(numbers);
-        Collections.sort(alphabets, sort);
+        Collections.sort(alphabets, comp);
 
         return shuffle().stream()
                 .map(String::valueOf)
                 .collect(Collectors.joining());
     }
+
+    private final static Comparator<Character> comp = (c1, c2) -> {
+        if(Character.toUpperCase(c1) == Character.toUpperCase(c2)) {
+            return c1 - c2;
+        }
+
+        return Character.toUpperCase(c1) - Character.toUpperCase(c2);
+    };
 
     public List<Character> shuffle() {
         List<Character> data = new ArrayList<>();
