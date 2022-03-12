@@ -1,6 +1,6 @@
 package dev.riyenas.assignment.service;
 
-import dev.riyenas.assignment.domain.Result;
+import dev.riyenas.assignment.web.dto.ProcessResponseDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -27,7 +27,7 @@ public class DataProcessServiceTest{
         // given
 
         // when
-        Result expected = dataProcessService.dataProcess(data, unit);
+        ProcessResponseDto expected = dataProcessService.dataProcess(data, unit);
 
         // that
         assertThat(quotient).isEqualTo(expected.getQuotient());
