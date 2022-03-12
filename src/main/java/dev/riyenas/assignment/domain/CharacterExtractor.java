@@ -11,7 +11,7 @@ public class CharacterExtractor {
         this.data = data;
     }
 
-    public List<Character> alphabets() {
+    public List<Character> getAlphabets() {
         List<Character> alphabets = new ArrayList<>();
 
         for(char ch : data.toCharArray()) {
@@ -25,7 +25,7 @@ public class CharacterExtractor {
         return ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z');
     }
 
-    public List<Character> numbers() {
+    public List<Character> getNumbers() {
         List<Character> numbers = new ArrayList<>();
 
         for(char ch : data.toCharArray()) {

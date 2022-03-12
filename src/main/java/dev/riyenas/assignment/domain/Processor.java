@@ -1,5 +1,7 @@
 package dev.riyenas.assignment.domain;
 
+import lombok.Builder;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -19,6 +21,7 @@ public class Processor {
         return Character.toUpperCase(c1) - Character.toUpperCase(c2);
     };
 
+    @Builder
     public Processor(List<Character> alphabets, List<Character> numbers) {
         this.alphabets = alphabets;
         this.numbers = numbers;

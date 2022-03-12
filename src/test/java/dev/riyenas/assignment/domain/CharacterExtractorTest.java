@@ -17,7 +17,7 @@ public class CharacterExtractorTest {
         CharacterExtractor characterExtractor = new CharacterExtractor(exposureData);
 
         // when
-        List<Character> expected = characterExtractor.alphabets();
+        List<Character> expected = characterExtractor.getAlphabets();
 
         // that
         List<Character> actual = List.of('a', 'z', 'A', 'Z');
@@ -32,7 +32,7 @@ public class CharacterExtractorTest {
         CharacterExtractor characterExtractor = new CharacterExtractor(exposureData);
 
         // when
-        List<Character> expected = characterExtractor.numbers();
+        List<Character> expected = characterExtractor.getNumbers();
 
         // that
         List<Character> actual = List.of('0', '9');
