@@ -1,13 +1,17 @@
 package dev.riyenas.assignment.domain;
 
-public class Calculator {
+public class SplitCalculator {
 
     private final String data;
     private final int unit;
 
-    public Calculator(String data, int unit) {
+    public SplitCalculator(String data, int unit) {
         this.data = data;
         this.unit = unit;
+    }
+
+    public static SplitCalculator of(String data, int unit) {
+        return new SplitCalculator(data, unit);
     }
 
     public Result calculate() {

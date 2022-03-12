@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CalculatorTest {
+public class SplitCalculatorTest {
 
     @ParameterizedTest(name = "{index}. data: {0}, unit: \"{1}\" -> \"{2}\" + \"{3}\"")
     @CsvSource(value = {
@@ -19,10 +19,10 @@ public class CalculatorTest {
     @DisplayName("몫과 나머지를 계산한다.")
     public void processDataQuotientAndReminder(String data, int unit, String quotient, String reminder) {
         // given
-        Calculator calculator = new Calculator(data, unit);
+        SplitCalculator splitCalculator = new SplitCalculator(data, unit);
 
         // when
-        Result expected = calculator.calculate();
+        Result expected = splitCalculator.calculate();
 
         // that
         assertThat(expected.getQuotient()).isEqualTo(quotient);
