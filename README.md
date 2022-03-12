@@ -1,16 +1,18 @@
 # URL 파싱 후 데이터 가공 하기
 
 ## 구현방법
-* Spring Validator를 이용해 Controller에서 입력데이터 값을 검증했습니다.
-* GlobalExceptionHandler을 통해 전역 예외 처리를 진행했습니다.
-* TDD의 red-green-refactor 사이클을 통해 구현했습니다.
-* 크롤러의 경우 외부 서비스의 상태에 따라 테스트 결과가 달라질 수 있기 때문에 Mock Server를 이용해 html페이지를 띄워 테스트했습니다.
-* 34개의 테스트를 작성해 최대한 오류를 줄이고 리펙터링에 용이하도록 했습니다.
+* 전략패턴을 사용해 새로운 노출 유형이 생겨도 기존 코드변경 없이 확장할 수 있도록 구현
+* Spring Validator를 이용해 입력데이터 값을 검증
+* GlobalExceptionHandler을 통해 전역 예외 처리
+* TDD의 red-green-refactor 사이클을 통해 구현
+* 크롤러의 경우 외부 서비스의 상태에 따라 테스트 결과가 달라질 수 있기 때문에 Mock Server를 이용해 html페이지를 띄워 테스트
+* 36개의 테스트를 작성
 
 ## API Document
 * http://localhost:8080/swagger-ui/index.html
 
 ### Request
+url : http://localhost:8080/api/v1/process
 * url은 https, http protocol이 포함된 문자열만 허용합니다.
 * unit은 1이상의 값만 허용합니다.
 * exposureType은 HTML과 TEXT값만 허용합니다. (text, html 허용 안함)

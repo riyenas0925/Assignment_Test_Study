@@ -30,7 +30,7 @@ public class DataProcessController {
             @Valid @RequestBody ProcessRequestDto requestDto
     ) throws IOException {
 
-        String data = crawlerService.crawler(requestDto.getUrl(), ExposureType.valueOf(requestDto.getExposureType()));
+        String data = crawlerService.crawl(requestDto.getUrl(), ExposureType.valueOf(requestDto.getExposureType()));
         ProcessResponseDto responseDto = dataProcessService.dataProcess(data, requestDto.getUnit());
 
         return ResponseEntity.ok(responseDto);
