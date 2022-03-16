@@ -1,4 +1,4 @@
-package dev.riyenas.assignment.exception;
+package dev.riyenas.assignment.error;
 
 import lombok.Getter;
 import org.springframework.validation.FieldError;

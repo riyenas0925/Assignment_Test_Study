@@ -1,5 +1,6 @@
 package dev.riyenas.assignment.crawler;
 
+import dev.riyenas.assignment.error.exception.CrawlerException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -15,10 +16,16 @@ public class Crawler {
         this.exposureType = exposureType;
     }
 
-    public String crawl(String url) throws IOException {
-        Document document = Jsoup.connect(url)
-                .userAgent(USER_AGENT)
-                .get();
+    public String crawl(String url) throws CrawlerException {
+
+        Document document = null;
+        try {
+            document = Jsoup.connect(url)
+                    .userAgent(USER_AGENT)
+                    .get();
+        } catch (IOException e) {
+            throw new CrawlerException();
+        }
 
         return exposureType.parse(document);
     }
