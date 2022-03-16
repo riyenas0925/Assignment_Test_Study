@@ -1,6 +1,6 @@
 package dev.riyenas.assignment.web.dto;
 
-import dev.riyenas.assignment.domain.Result;
+import dev.riyenas.assignment.util.Result;
 import lombok.Getter;
 
 @Getter

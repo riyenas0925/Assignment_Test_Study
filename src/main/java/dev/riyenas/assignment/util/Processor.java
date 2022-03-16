@@ -1,4 +1,4 @@
-package dev.riyenas.assignment.domain;
+package dev.riyenas.assignment.util;
 
 import lombok.Builder;
 

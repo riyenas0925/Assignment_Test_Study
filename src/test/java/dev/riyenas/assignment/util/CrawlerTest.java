@@ -1,4 +1,4 @@
-package dev.riyenas.assignment.domain;
+package dev.riyenas.assignment.util;
 
 import dev.riyenas.assignment.crawler.Crawler;
 import dev.riyenas.assignment.crawler.ExposureType;

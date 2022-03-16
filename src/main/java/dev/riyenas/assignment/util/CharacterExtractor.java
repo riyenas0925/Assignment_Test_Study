@@ -1,4 +1,4 @@
-package dev.riyenas.assignment.domain;
+package dev.riyenas.assignment.util;
 
 import java.util.ArrayList;
 import java.util.List;

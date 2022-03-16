@@ -1,9 +1,9 @@
 package dev.riyenas.assignment.service;
 
-import dev.riyenas.assignment.domain.CharacterExtractor;
-import dev.riyenas.assignment.domain.Processor;
-import dev.riyenas.assignment.domain.Result;
-import dev.riyenas.assignment.domain.SplitCalculator;
+import dev.riyenas.assignment.util.CharacterExtractor;
+import dev.riyenas.assignment.util.Processor;
+import dev.riyenas.assignment.util.Result;
+import dev.riyenas.assignment.util.SplitCalculator;
 import dev.riyenas.assignment.web.dto.ProcessResponseDto;
 import org.springframework.stereotype.Service;
 
